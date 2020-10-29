@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:heroku" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="03676925-6daf-4c67-80c2-49fa485fdc03" name="Default Changelist" comment="" />
+    <list default="true" id="03676925-6daf-4c67-80c2-49fa485fdc03" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book_detail.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/book_detail.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +41,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1j6NwyOQz4L2DvY03aYm3b3AmrE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,29 +80,55 @@
       <option name="presentableId" value="Default" />
       <updated>1603120824827</updated>
       <workItem from="1603120826303" duration="535000" />
+      <workItem from="1603220074216" duration="1982000" />
+      <workItem from="1603517142763" duration="622000" />
+      <workItem from="1603701911137" duration="191000" />
+      <workItem from="1603702110314" duration="15687000" />
+      <workItem from="1603975467085" duration="8790000" />
+      <workItem from="1603997308948" duration="10268000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1889" height="271" key="GridCell.Tab.0.bottom" timestamp="1603126854792">
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog" timestamp="1603220858301">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603126854792" />
-    <state width="1889" height="271" key="GridCell.Tab.0.center" timestamp="1603126854790">
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603220858301" />
+    <state x="500" y="263" width="910" height="551" key="EditFileWatcherDialog" timestamp="1603517229113">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603126854790" />
-    <state width="1889" height="271" key="GridCell.Tab.0.left" timestamp="1603126854788">
+    <state x="500" y="263" width="910" height="551" key="EditFileWatcherDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603517229113" />
+    <state width="1889" height="271" key="GridCell.Tab.0.bottom" timestamp="1604007320231">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603126854788" />
-    <state width="1889" height="271" key="GridCell.Tab.0.right" timestamp="1603126854791">
+    <state width="1889" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1604007320231" />
+    <state width="1889" height="271" key="GridCell.Tab.0.center" timestamp="1604007320229">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603126854791" />
+    <state width="1889" height="271" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1604007320229" />
+    <state width="1889" height="271" key="GridCell.Tab.0.left" timestamp="1604007320228">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1889" height="271" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1604007320228" />
+    <state width="1889" height="271" key="GridCell.Tab.0.right" timestamp="1604007320230">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1889" height="271" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1604007320230" />
     <state x="386" y="50" width="1137" height="978" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603127462173">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

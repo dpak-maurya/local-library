@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .row
+        h1.text-center  New question
+        .col-md-6.offset-md-3
+            form(action='' method='POST' enctype='multipart/form-data')
+                .mb-3
+                    label.form-label(for='title') Title
+                    input#title.form-control(type='text' name='title' value=(undefined === question ? '' : question.title))
+                .mb-3
+                    label.form-label(for='description') Description
+                    textarea#description.form-control(type='text' name='description' value=(undefined === question ? '' : question.description) required )
+                .mb-3
+                    .form-file.custom-file
+                        input#image.form-file-input(type='file' name='image' multiple)
+                        label.form-file-label(for='image')
+                            span.form-file-text.custom-file-label Choose image(s)...
+                            span.form-file-button Browse
+                .mb-3
+                    button.btn.btn-success Add question
+            a(href='/questions') All questions

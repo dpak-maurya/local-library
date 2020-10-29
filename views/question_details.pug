@@ -1,0 +1,19 @@
+extends layout_test
+
+block content
+    div.container
+        h1=title
+        .card.mb-3
+            each img in que.images
+                img.card-img-top(src=img.url alt=que.name)
+                //embed(src=img.url width="800px" height="2100px")
+            .card-body
+                h5.card-title=que.name
+                p.card-text #{que.description}
+                p.card-text
+                    small.text-muted Last updated 3 mins ago
+                a.btn.btn-primary(href=que.url) Answer
+
+
+
+

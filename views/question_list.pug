@@ -1,0 +1,37 @@
+extends layout_test
+block content
+    style(type="text/css").
+        .head-section {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        #title {
+            text-align: center;
+        }
+
+        #new-question {
+            position: absolute;
+            right: 0;
+        }
+    div.container
+        div.head-section
+            h1#title=title
+            a#new-question.btn.btn-primary(href='/solutions/question/add' style='') Add New Question
+
+        div.row
+            each que in question_list
+                div.col-sm-6
+                    .card.mb-3
+                        each img in que.images
+                            img.card-img-top(src=img.url alt=que.name)
+                        .card-body
+                            h5.card-title=que.name
+                            p.card-text #{que.description}
+                            p.card-text
+                                small.text-muted Last updated 3 mins ago
+                            a.btn.btn-primary(href=que.url) Answer
+
+            else
+                li Currently No Genres is there
