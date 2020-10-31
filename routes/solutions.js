@@ -17,11 +17,10 @@ router.get('/question/add',solution_controller.question_get);
 router.post('/question/add',upload.array('image'),solution_controller.question_post);
 // GET request for one question detail.
 router.get('/:id', solution_controller.question_detail);
-//GET request for adding a solution
-router.get('/answer/add',solution_controller.answer_get);
 
 //POST request for adding a solution
-router.post('/answer/add',solution_controller.answer_post);
+router.post('/:id/answer',upload.array('image'),solution_controller.answer_post);
+router.post('/:id/reference',solution_controller.reference_post);
 
 
 module.exports = router;

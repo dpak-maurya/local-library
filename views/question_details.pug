@@ -1,19 +1,54 @@
 extends layout_test
 
 block content
+    style.
+        div.ex1 {
+            background-color: lightblue;
+            width: 700px;
+            height: 400px;
+            overflow: scroll;
+        }
     div.container
         h1=title
         .card.mb-3
-            each img in que.images
-                img.card-img-top(src=img.url alt=que.name)
-                //embed(src=img.url width="800px" height="2100px")
             .card-body
                 h5.card-title=que.name
                 p.card-text #{que.description}
-                p.card-text
-                    small.text-muted Last updated 3 mins ago
-                a.btn.btn-primary(href=que.url) Answer
+            div.row
+                div.col-sm-2
+                div.col-sm-8.ex1
+                    each img in que.images
+                        img.card-img-top(src=img.url alt=que.name)
+                        //embed(src=img.url width='700px' height="650px")
+                div.col-sm-2
 
+            div.row
+                div.col-sm-6
+                    form(action=que.url+'/reference' method='POST')
+                        input(type='hidden' value=que._id name='question' required)
+                        div.form-group
+                            label.form-label(for='description') Description
+                            textarea#description.form-control(type='text' name='description' required )
+                        button.btn.btn-success Add Reference
+                div.col-sm-6
+                    form(action=que.url+'/answer' method='POST' enctype='multipart/form-data')
+                        input(type='hidden' value=que._id name='question' )
+                        div.form-group
+                            label.form-file-label(for='pdf-file') Upload a pdf file
+                            div.file-loading
+                                input#pdf-file.form-control(multiple='' type='file' name='image' required)
+                        button.btn.btn-success Add Answer
 
-
+        div.row
+            each desc in que.refers
+                div.col-sm-6
+                p #{desc.description}
+        div.row
+            div.col-sm-6
+                each ans,index in que.answers
+                    h3 Answer-#{index + 1}
+                    each img in ans.images
+                        a(href=img.url target="_blank") Pdf Link
+                        .embed-responsive.embed-responsive-1by1
+                            embed.embed-responsive-item(src=img.url height="700px")
 

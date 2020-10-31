@@ -26,11 +26,20 @@
   <component name="ChangeListManager">
     <list default="true" id="03676925-6daf-4c67-80c2-49fa485fdc03" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/book_detail.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/book_detail.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/solutionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/solutionController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/answer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/question.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/solutions.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/solutions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T20:56:16.999Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T21:14:23.775Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T21:24:19.291Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T21:27:38.037Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T21:27:39.467Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout_test.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout_test.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/question_details.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/question_details.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/question_form.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/question_form.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/question_list.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/question_list.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +94,10 @@
       <workItem from="1603701911137" duration="191000" />
       <workItem from="1603702110314" duration="15687000" />
       <workItem from="1603975467085" duration="8790000" />
-      <workItem from="1603997308948" duration="10268000" />
+      <workItem from="1603997308948" duration="12125000" />
+      <workItem from="1604043066845" duration="4868000" />
+      <workItem from="1604080925853" duration="17259000" />
+      <workItem from="1604117029462" duration="11716000" />
     </task>
     <servers />
   </component>
@@ -113,22 +125,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="500" y="263" width="910" height="551" key="EditFileWatcherDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603517229113" />
-    <state width="1889" height="271" key="GridCell.Tab.0.bottom" timestamp="1604007320231">
+    <state width="1889" height="271" key="GridCell.Tab.0.bottom" timestamp="1604128983591">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1604007320231" />
-    <state width="1889" height="271" key="GridCell.Tab.0.center" timestamp="1604007320229">
+    <state width="1889" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1604128983591" />
+    <state width="1889" height="271" key="GridCell.Tab.0.center" timestamp="1604128983590">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1604007320229" />
-    <state width="1889" height="271" key="GridCell.Tab.0.left" timestamp="1604007320228">
+    <state width="1889" height="271" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1604128983590" />
+    <state width="1889" height="271" key="GridCell.Tab.0.left" timestamp="1604128983590">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1604007320228" />
-    <state width="1889" height="271" key="GridCell.Tab.0.right" timestamp="1604007320230">
+    <state width="1889" height="271" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1604128983590" />
+    <state width="1889" height="271" key="GridCell.Tab.0.right" timestamp="1604128983591">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1604007320230" />
+    <state width="1889" height="271" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1604128983591" />
     <state x="386" y="50" width="1137" height="978" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603127462173">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

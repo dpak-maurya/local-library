@@ -4,11 +4,35 @@ var async=require('async');
 const {body,validationResult}=require('express-validator');
 
 exports.index = function(req, res) {
+
     Question.find({})
-        .populate('answers')
-        .populate('descriptions')
+        .populate('Description')
+        .populate('Answer')
         .exec(function (err,list_questions){
-            if(err) return next(err);
+            var allque=[];
+            // if(err) return next(err);
+            // list_questions.forEach((question)=>{
+            //     async.parallel({
+            //         answers:function (callback) {
+            //             Answer.countDocuments({'question':question._id}, callback);
+            //         },
+            //         refers:function (callback) {
+            //             Description.countDocuments({'question':question._id}, callback);
+            //         },
+            //     },function (err,results){
+            //         //console.log(question);
+            //         var q={
+            //             _id:question._id,
+            //             name: question.name,
+            //             images:question.images,
+            //             description: question.description,
+            //             answers:results.answers,
+            //             refers: results.refers
+            //         }
+            //         allque.push(q);
+            //     })
+            // })
+            // console.log(allque)
             res.render('question_list',{title:'All Questions',question_list:list_questions});
         })
 };
@@ -54,98 +78,64 @@ exports.question_post = [
     }
 ];
 exports.question_detail=function (req,res,next){
-    Question.findById(req.params.id)
-        .populate('answers')
-        .populate('descriptions')
-        .exec(function (err,question){
-            if(err) return next(err);
-            res.render('question_details',{title:'Question',que:question});
-        })
-}
-// Display book create form on GET.
-exports.answer_get = function(req, res, next) {
-
-    // Get all authors and genres, which we can use for adding to our book.
     async.parallel({
-        authors: function(callback) {
-            Author.find(callback);
+        question:function (callback){
+            Question.findById(req.params.id)
+                .exec(callback);
         },
-        genres: function(callback) {
-            Genre.find(callback);
+        answers:function (callback){
+            Answer.find({'question': req.params.id})
+                .exec(callback);
         },
-    }, function(err, results) {
-        if (err) { return next(err); }
-        res.render('book_form', { title: 'Create Book', authors: results.authors, genres: results.genres });
-    });
+        refers:function (callback){
+            Description.find({'question': req.params.id})
+                .exec(callback);
+        }
+    },function (err,results){
+        if(err) return next(err);
+        if(results.question==null){
+            var err=new Error('question not found');
+            err.status=404;
+            return next(err);
+        }
+        var que={
+            _id:results.question._id,
+            name: results.question.name,
+            images: results.question.images,
+            description: results.question.description,
+            answers:results.answers,
+            refers:results.refers
+        };
 
-};
-
+        res.render('question_details',{title:'Question',que:que});
+    })
+}
 // Handle book create on POST.
-exports.answer_post = [
-    // Convert the genre to an array.
-    (req,res,next)=>{
-        if(!(req.body.genre instanceof Array)){
-            if(typeof req.body.genre ==='undefined')
-                req.body.genre=[];
-            else
-                req.body.genre=new Array(req.body.genre);
-        }
-        next();
-    },
-
-    //Validate and sanitise fields.
-    body('title','Title must not be empty.').trim().isLength({min:1}).escape(),
-    body('author','Author must not be empty.').trim().isLength({min:1}).escape(),
-    body('summary','Summary must not be empty.').trim().isLength({min:1}).escape(),
-    body('isbn','ISBN must not be empty').trim().isLength({min:1}).escape(),
-    body('genre.*').escape(),
-
-    // Process request after validation and sanitization.
-    (req,res,next)=>{
-        // Extract the validation errors from a request.
-        const errors=validationResult(req);
-
-        // Create a Book object with escaped and trimmed data.
-        var book=new Book(
+exports.reference_post = (req,res,next)=>{
+    console.log(req.body);
+    var desc=new Description(
+        {
+            description:req.body.description,
+            question:req.body.question,
+        });
+    desc.save(function (err){
+        if(err){return next(err);}
+        //successful - redirect to new book record.
+        res.redirect('back');
+    });
+}
+// Handle book create on POST.
+exports.answer_post=(req,res,next)=>{
+        var ans=new Answer(
             {
-                title:req.body.title,
-                author:req.body.author,
-                summary:req.body.summary,
-                isbn:req.body.isbn,
-                genre:req.body.genre
+                images:req.files.map(f => ({ url: f.path, filename: f.filename })),
+                question:req.body.question
             });
-        if(!errors.isEmpty()){
-            // There are errors. Render form again with sanitized values/error messages.
 
-            // Get all authors and genres for form.
-            async.parallel({
-                authors:function (callback){
-                    Author.find(callback);
-                },
-                genres:function (callback){
-                    Genre.find(callback);
-                },
-            },function (err,results){
-                if (err) { return next(err); }
-
-                // Mark our selected genres as checked.
-                for (let i = 0; i < results.genres.length; i++) {
-                    if(book.genre.indexOf(results.genres[i]._id)>-1){
-                        results.genres[i].checked='true';
-                    }
-                }
-
-                res.render('book_form',{title:'Create Book',authors:results.authors,genres:results.genres,book:book,errors:errors.array()});
-            });
-            return ;
-        }
-        else{
-            // Data from form is valid. Save book.
-            book.save(function (err){
+            //Data from form is valid. Save book.
+            ans.save(function (err){
                 if(err){return next(err);}
                 //successful - redirect to new book record.
-                res.redirect(book.url);
+                res.redirect('back');
             });
-        }
     }
-];

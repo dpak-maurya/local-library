@@ -1,9 +1,11 @@
-extends layout
+extends layout_test
 
 block content
-    .row
-        h1.text-center  New question
+
+    .container.row
+
         .col-md-6.offset-md-3
+            h1.text-center  New question
             form(action='' method='POST' enctype='multipart/form-data')
                 .mb-3
                     label.form-label(for='title') Title
@@ -12,11 +14,11 @@ block content
                     label.form-label(for='description') Description
                     textarea#description.form-control(type='text' name='description' value=(undefined === question ? '' : question.description) required )
                 .mb-3
-                    .form-file.custom-file
-                        input#image.form-file-input(type='file' name='image' multiple)
-                        label.form-file-label(for='image')
-                            span.form-file-text.custom-file-label Choose image(s)...
-                            span.form-file-button Browse
+                    div.form-group
+                        label.form-file-label(for='image') Upload question image(s)
+                        div.file-loading
+                            input#image.form-control(multiple='' type='file' name='image')
+
                 .mb-3
                     button.btn.btn-success Add question
             a(href='/questions') All questions

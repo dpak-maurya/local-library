@@ -10,8 +10,6 @@ const questionSchema = new mongoose.Schema({
     name: String,
     images: [ImageSchema],
     description: String,
-    answers:[{type: Schema.Types.ObjectId,ref:'Answer'}],
-    references:[{type: Schema.Types.ObjectId,ref:'Description'}]
 });
 questionSchema
     .virtual('url')

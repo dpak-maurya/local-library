@@ -6,12 +6,15 @@ const ImageSchema = new Schema({
     filename: String
 });
 const answerSchema = new mongoose.Schema({
-    name: String,
-    image:[ImageSchema],
+    images:[ImageSchema],
+    question:{type: Schema.Types.ObjectId,ref:'Question',required: true},
 });
 const descriptionSchema = new mongoose.Schema({
-    description:String
+    description:String,
+    question:{type: Schema.Types.ObjectId,ref:'Question',required: true},
 });
 
-module.exports = mongoose.model("Answer", answerSchema);
-module.exports = mongoose.model("Description", descriptionSchema);
+module.exports= {
+    Answer:mongoose.model("Answer", answerSchema),
+    Description:mongoose.model("Description", descriptionSchema)
+}
