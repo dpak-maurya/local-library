@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var catalogRouter=require('./routes/catalog');
 var solutionRouter=require('./routes/solutions');
+var gameRouter=require('./routes/games');
 var compression = require('compression');
 var helmet =require('helmet');
 

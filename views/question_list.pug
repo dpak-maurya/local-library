@@ -14,13 +14,14 @@ block content
             a.btn.btn-primary(href='/solutions/question/add' style='') Add New Question
 
         div.row
-            each que in question_list
+            each que,index in question_list
                 div.col-sm-6.ex1
                     .card.mb-3
-                        each img,index in que.images
+                        h3.bg-dark.text-white(style="width:30px;padding:5px") #{index+1}
+                        each img in que.images
                             img.card-img-top(src=img.url alt=que.name)
                             .card-img-overlay
-                                h3.bg-dark.text-white(style="width:30px;padding:5px") #{index+1}
+
                                 //span
                                 //    if que.answers.length ||que.refers.length
                                 a.btn.btn-success(href=que.url) Answer

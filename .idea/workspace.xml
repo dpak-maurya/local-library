@@ -24,21 +24,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03676925-6daf-4c67-80c2-49fa485fdc03" name="Default Changelist" comment="">
+    <list default="true" id="03676925-6daf-4c67-80c2-49fa485fdc03" name="Default Changelist" comment="add delivery driver game">
+      <change afterPath="$PROJECT_DIR$/controllers/gameController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Build/DeliveryDriver.data.unityweb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Build/DeliveryDriver.framework.js.unityweb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Build/DeliveryDriver.loader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Build/DeliveryDriver.wasm.unityweb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/fullscreen-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/progress-bar-empty-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/progress-bar-empty-light.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/progress-bar-full-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/progress-bar-full-light.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/unity-logo-dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/unity-logo-light.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/TemplateData/webgl-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/games.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/game_play.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/solutionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/solutionController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/answer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/question.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/question.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/solutions.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/solutions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T20:56:16.999Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T21:14:23.775Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T21:24:19.291Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T21:27:38.037Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/2020-10-29T21:27:39.467Z-kupdf.net_a-smarter-way-to-learn-javascript.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layout_test.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout_test.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/question_details.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/question_details.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/question_form.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/question_form.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/question_list.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/question_list.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,8 +55,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1j6NwyOQz4L2DvY03aYm3b3AmrE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -59,9 +78,16 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="serverstart" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -98,6 +124,9 @@
       <workItem from="1604043066845" duration="4868000" />
       <workItem from="1604080925853" duration="17259000" />
       <workItem from="1604117029462" duration="11716000" />
+      <workItem from="1650693660550" duration="3692000" />
+      <workItem from="1650726638354" duration="5000" />
+      <workItem from="1650726667206" duration="3159000" />
     </task>
     <servers />
   </component>
@@ -114,36 +143,9 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog" timestamp="1603220858301">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603220858301" />
-    <state x="500" y="263" width="910" height="551" key="EditFileWatcherDialog" timestamp="1603517229113">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="500" y="263" width="910" height="551" key="EditFileWatcherDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603517229113" />
-    <state width="1889" height="271" key="GridCell.Tab.0.bottom" timestamp="1604128983591">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1604128983591" />
-    <state width="1889" height="271" key="GridCell.Tab.0.center" timestamp="1604128983590">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1604128983590" />
-    <state width="1889" height="271" key="GridCell.Tab.0.left" timestamp="1604128983590">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1604128983590" />
-    <state width="1889" height="271" key="GridCell.Tab.0.right" timestamp="1604128983591">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1889" height="271" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1604128983591" />
-    <state x="386" y="50" width="1137" height="978" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603127462173">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="386" y="50" width="1137" height="978" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1603127462173" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add delivery driver game" />
+    <option name="LAST_COMMIT_MESSAGE" value="add delivery driver game" />
   </component>
 </project>
