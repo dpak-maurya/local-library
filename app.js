@@ -39,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/catalog',catalogRouter);
 app.use('/solutions',solutionRouter);
+app.use('/games',gameRouter);
 
 
 // catch 404 and forward to error handler
