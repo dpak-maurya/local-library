@@ -1,39 +1,105 @@
 extends layout_test
+
 block content
     style.
-        div.ex1 {
-            background-color: lightblue;
-            width: 700px;
-            height: 400px;
-            overflow: scroll;
+        /* Updated styles for two cards per row */
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem; /* Adds more space below the top section */
         }
+        .add-new-question-btn {
+            padding: 0.75rem 1.5rem; /* Increases padding around the button */
+            font-size: 1rem; /* Adjust font size as needed */
+        }
+        .card-container {
+            position: relative;
+            padding-bottom: 38px; /* Space for the answer button */
+            margin-bottom: 2rem; /* Adds space between cards */
+            min-height: 250px; /* Minimum height for consistency */
+            border-radius: .25rem; /* Rounded corners for card */
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075); /* Box-shadow for depth */
+        }
+        .card-img-top {
+            height: 150px; /* Fixed height for consistency */
+            object-fit: cover; /* Maintain aspect ratio */
+            background-size: cover; /* Ensure the background covers the area */
+            border-top-left-radius: .25rem; /* Rounded top corners for image */
+            border-top-right-radius: .25rem; /* Rounded top corners for image */
+        }
+        .card-description {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3; /* Number of lines to show */
+            overflow: hidden;
+            margin-bottom: 1rem; /* Space below the description */
+        }
+        .answer-btn {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 0; /* Align with the card's bottom */
+        }
+        .no-questions {
+            font-size: 1rem;
+            padding: 1rem;
+            text-align: center;
+        }
+    script.
+             // This JavaScript would be inline in your Pug template within a script tag
+             document.addEventListener('DOMContentLoaded', function () {
+                 function timeSince(date) {
+                     const intervals = [
+                         {label: 'year', seconds: 31536000},
+                         {label: 'month', seconds: 2592000},
+                         {label: 'day', seconds: 86400},
+                         {label: 'hour', seconds: 3600},
+                         {label: 'minute', seconds: 60},
+                         {label: 'second', seconds: 1}
+                     ];
+                     const seconds = Math.floor((Date.now() - date) / 1000);
+                     const interval = intervals.find(i => i.seconds < seconds);
+                     const count = Math.floor(seconds / interval.seconds);
+                     return `${count} ${interval.label}${count !== 1 ? 's' : ''} ago`;
+                 }
+
+                 const updateTimestamps = () => {
+                     document.querySelectorAll('.time-since').forEach(node => {
+                         const date = new Date(node.getAttribute('data-date'));
+                         node.textContent = timeSince(date);
+                     });
+                 };
+
+                 updateTimestamps();
+                 setInterval(updateTimestamps, 60000);
+             });
 
     div.container
-        div.d-flex
-            h3.mr-auto#title=title
-            a.btn.btn-primary(href='/solutions/question/add' style='') Add New Question
+        div.top-section
+            h3#title.my-3 All Questions
+            a.btn.btn-success.add-new-question-btn(href='/solutions/question/add') Add New Question
 
         div.row
-            each que,index in question_list
-                div.col-sm-6.ex1
-                    .card.mb-3
-                        h3.bg-dark.text-white(style="width:30px;padding:5px") #{index+1}
-                        each img in que.images
-                            img.card-img-top(src=img.url alt=que.name)
-                            .card-img-overlay
-
-                                //span
-                                //    if que.answers.length ||que.refers.length
-                                a.btn.btn-success(href=que.url) Answer
-                                //    eles
-                                //        a.btn.btn-danger(href=que.url) Answer
-
+            each que, index in question_list
+                div.col-md-6.mb-4
+                    .card.card-container
+                        if que.images && que.images.length
+                            each img in que.images
+                                img.card-img-top(src=img.url alt=que.name)
+                        else
+                            img.card-img-top(src='/images/code-blog.png' alt='Default Image')
                         .card-body
-                            h5.card-title=que.name
-                            p.card-text #{que.description}
+                            h5.card-title #{que.name}
+                            p.card-description #{que.description}
                             p.card-text
-                                small.text-muted Last updated 3 mins ago
-                            a.btn.btn-primary(href=que.url) Answer
+                                small.text-muted
+                                    span Published on #{que.createdDate.toLocaleDateString()}
+                                    | , 
+                                    span.time-since(data-date=que.createdDate.toISOString()) 
+                                    | 
+                            a.btn.btn-success.answer-btn(href=que.url) Answer
 
             else
-                li Currently No Questioons
+                p.no-questions There are currently no questions available.

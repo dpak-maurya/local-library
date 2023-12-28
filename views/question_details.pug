@@ -2,53 +2,163 @@ extends layout_test
 
 block content
     style.
-        div.ex1 {
-            background-color: lightblue;
-            width: 700px;
-            height: 400px;
-            overflow: scroll;
+        /* Style adjustments for better layout and visibility */
+        .question-container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            padding: 1rem;
         }
+        .card-img-top, .default-image {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .default-image {
+            background: url('images/code-blog.png') center center no-repeat;
+            background-size: cover;
+            height: 200px;
+        }
+        .embed-responsive-item {
+            height: auto;
+        }
+        .btn-success {
+            margin-top: 1rem;
+        }
+        .comments-container {
+            margin-top: 2rem;
+        }
+        .comment-section {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.25rem;
+        }
+        .comment-text {
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 0.5rem; /* Space between comments */
+        }
+        .comment-author {
+            font-weight: bold;
+            margin-bottom: 0.5rem; /* Space between author and text */
+        }
+        /* Responsive grid for comments */
+        @media (min-width: 768px) {
+            .comment-column {
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+            }
+        }
+        .answer-section {
+            padding-top: 1rem;
+            border-top: 1px solid #e3e6ea;
+        }
+        .pdf-viewer-container {
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .pdf-viewer-title {
+            font-size: 1rem;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #ddd;
+            padding: 8px 16px;
+        }
+        .pdf-viewer-frame {
+            height: 500px; /* Adjust as needed */
+            width: 100%;
+        }
+        .pdf-view-link {
+            padding: 8px 16px;
+            display: block;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+        .pdf-viewer-frame {
+            width: 100%;
+            display: none; /* Hide by default */
+            margin-top: 1rem; /* Space above the viewer */
+        }
+        .toggle-button {
+            cursor: pointer;
+            color: #007bff;
+            background-color: transparent;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            text-align: left;
+        }
+    script.
+        // JavaScript to toggle the PDF viewer
+        function togglePDFViewer(button, viewerId) {
+            var viewer = document.getElementById(viewerId);
+            viewer.style.display = viewer.style.display === 'none' ? 'block' : 'none';
+            button.textContent = viewer.style.display === 'none' ? 'Show PDF' : 'Hide PDF';
+        }
+
     div.container
-        h1=title
-        .card.mb-3
-            .card-body
-                h5.card-title=que.name
-                p.card-text #{que.description}
-            div.row
-                div.col-sm-2
-                div.col-sm-8.ex1
+        h1.mb-3.text-center=title
+        .question-container 
+            .card.mb-3
+                .card-body
+                    h5.card-title=que.name
+                    p.card-text #{que.description}
+                if que.images && que.images.length > 0
                     each img in que.images
                         img.card-img-top(src=img.url alt=que.name)
-                        //embed(src=img.url width='700px' height="650px")
-                div.col-sm-2
+                else
+                    .default-image
 
-            div.row
-                div.col-sm-6
-                    form(action=que.url+'/reference' method='POST')
-                        input(type='hidden' value=que._id name='question' required)
-                        div.form-group
-                            label.form-label(for='description') Description
-                            textarea#description.form-control(type='text' name='description' required )
-                        button.btn.btn-success Add Reference
-                div.col-sm-6
-                    form(action=que.url+'/answer' method='POST' enctype='multipart/form-data')
-                        input(type='hidden' value=que._id name='question' )
-                        div.form-group
-                            label.form-file-label(for='pdf-file') Upload a pdf file
-                            div.file-loading
-                                input#pdf-file.form-control(multiple='' type='file' name='image' required)
-                        button.btn.btn-success Add Answer
+            .answer-section
+                div.row.d-flex
+                    div.col-md-6.align-self-start
+                        form(action=que.url+'/reference' method='POST')
+                            input(type='hidden' value=que._id name='question' required)
+                            .form-group
+                                label.form-label(for='description') Description
+                                textarea#description.form-control(type='text' name='description' required )
+                            button.mt-n1.btn.btn-success(type='submit') Add Comments
+                    div.col-md-6.align-self-start
+                        form(action=que.url+'/answer' method='POST' enctype='multipart/form-data')
+                            input(type='hidden' value=que._id name='question' )
+                            .form-group
+                                label.form-file-label(for='pdf-file') Upload a pdf file
+                                .file-loading
+                                    input#pdf-file.form-control(type='file' name='image' required)
+                            button.mt-n1.btn.btn-success(type='submit') Add Answer
 
-        div.row
-            each desc in que.refers
-                div.col-sm-6
-                p #{desc.description}
-        div.row
-            div.col-sm-6
-                each ans,index in que.answers
-                    h3 Answer-#{index + 1}
-                    each img in ans.images
-                        a(href=img.url target="_blank") Pdf Link
-                        .embed-responsive.embed-responsive-1by1
-                            embed.embed-responsive-item(src=img.url height="700px")
+                //- Styled comment section
+            if que.refers && que.refers.length > 0
+                h3.mt-4 Comments
+                .row.comments-container
+                    each comment, index in que.refers
+                        .col-sm-12.col-md-4.comment-column
+                            .comment-section
+                                .comment-author Anonymous User #{index}
+                                .comment-text #{comment.description}
 
+            if que.answers && que.answers.length > 0
+                .answer-section.mt-4
+                    h4 Answers
+                    div.row
+                        each ans, index in que.answers
+                            .col-md-12
+                                .card.mb-3
+                                    .card-body
+                                        h5.card-title Answer #{index + 1}
+                                        if ans.images && ans.images.length > 0
+                                            each img, imgIndex in ans.images
+                                                - var pdfId = 'pdf-viewer-' + (index+1) + '-' + (imgIndex+1) ;
+                                                p #{pdfId}
+                                                button.toggle-button(onclick="togglePDFViewer(this, '" + pdfId + "')") Show PDF
+                                                embed(id=pdfId class='pdf-viewer-frame' src=img.url)

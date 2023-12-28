@@ -1,24 +1,33 @@
 extends layout_test
 
 block content
+    .container.mt-5
+        .row.justify-content-center
+            .col-md-8
+                h1.text-center.mb-4 New Question
 
-    .container.row
+                // Bootstrap card for form
+                .card
+                    .card-header
+                        h4 Question Details
+                    .card-body
+                        form(action='' method='POST' enctype='multipart/form-data')
+                            .mb-3
+                                label.form-label(for='title') Title
+                                input#title.form-control(type='text' name='title' placeholder='Enter the title of your question' required)
+                            .mb-3
+                                label.form-label(for='description') Description
+                                textarea#description.form-control(type='text' name='description' placeholder='Enter the full description of your question' required)
+                            .mb-3
+                                .form-group
+                                    label.form-file-label(for='image') Upload question image(s)
+                                    .input-group
+                                        input#image.form-control(type='file' name='image' aria-describedby='imageHelpBlock')
+                                    small#imageHelpBlock.form-text.text-muted
+                                        Maximum file size is 5MB
+                            .text-center
+                                button.btn.btn-success(type='submit') Add Question
 
-        .col-md-6.offset-md-3
-            h1.text-center  New question
-            form(action='' method='POST' enctype='multipart/form-data')
-                .mb-3
-                    label.form-label(for='title') Title
-                    input#title.form-control(type='text' name='title' value=(undefined === question ? '' : question.title))
-                .mb-3
-                    label.form-label(for='description') Description
-                    textarea#description.form-control(type='text' name='description' value=(undefined === question ? '' : question.description) required )
-                .mb-3
-                    div.form-group
-                        label.form-file-label(for='image') Upload question image(s)
-                        div.file-loading
-                            input#image.form-control(multiple='' type='file' name='image')
-
-                .mb-3
-                    button.btn.btn-success Add question
-            a(href='/questions') All questions
+                // Link to view all questions
+                .text-center.mt-4
+                    a.btn.btn-outline-primary(href='/solutions') View All Questions

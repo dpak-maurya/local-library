@@ -9,40 +9,22 @@ exports.index = function(req, res) {
         .populate('Description')
         .populate('Answer')
         .exec(function (err,list_questions){
-            var allque=[];
-            // if(err) return next(err);
-            // list_questions.forEach((question)=>{
-            //     async.parallel({
-            //         answers:function (callback) {
-            //             Answer.countDocuments({'question':question._id}, callback);
-            //         },
-            //         refers:function (callback) {
-            //             Description.countDocuments({'question':question._id}, callback);
-            //         },
-            //     },function (err,results){
-            //         //console.log(question);
-            //         var q={
-            //             _id:question._id,
-            //             name: question.name,
-            //             images:question.images,
-            //             description: question.description,
-            //             answers:results.answers,
-            //             refers: results.refers
-            //         }
-            //         allque.push(q);
-            //     })
-            // })
-            // console.log(allque)
+           
+            if(err) return next(err);
+            list_questions.forEach(question => {
+                question.createdDate = question._id.getTimestamp();
+              });
+            
             res.render('question_list',{title:'All Questions',question_list:list_questions});
         })
 };
 
-// Display book create form on GET.
+// Display question create form on GET.
 exports.question_get = function(req, res, next) {
     res.render('question_form',{title:'Add a Question'});
 };
 
-// Handle book create on POST.
+// Handle question create on POST.
 exports.question_post = [
 
     //Validate and sanitise fields.
