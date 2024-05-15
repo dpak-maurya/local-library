@@ -132,7 +132,7 @@ block content
                         form(action=que.url+'/answer' method='POST' enctype='multipart/form-data')
                             input(type='hidden' value=que._id name='question' )
                             .form-group
-                                label.form-file-label(for='pdf-file') Upload a pdf file
+                                label.form-file-label(for='pdf-file') Upload a pdf/image file
                                 .file-loading
                                     input#pdf-file.form-control(type='file' name='image' required)
                             button.mt-n1.btn.btn-success(type='submit') Add Answer
@@ -160,5 +160,5 @@ block content
                                             each img, imgIndex in ans.images
                                                 - var pdfId = 'pdf-viewer-' + (index+1) + '-' + (imgIndex+1) ;
                                                 p #{pdfId}
-                                                button.toggle-button(onclick="togglePDFViewer(this, '" + pdfId + "')") Show PDF
+                                                button.toggle-button(onclick="togglePDFViewer(this, '" + pdfId + "')") Show Attachment
                                                 embed(id=pdfId class='pdf-viewer-frame' src=img.url)
