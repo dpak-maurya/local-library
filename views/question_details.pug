@@ -102,8 +102,13 @@ block content
         // JavaScript to toggle the PDF viewer
         function togglePDFViewer(button, viewerId) {
             var viewer = document.getElementById(viewerId);
-            viewer.style.display = viewer.style.display === 'none' ? 'block' : 'none';
-            button.textContent = viewer.style.display === 'none' ? 'Show PDF' : 'Hide PDF';
+            if (viewer.style.display === 'none' || viewer.style.display === '') {
+                viewer.style.display = 'block';
+                button.textContent = 'Hide Attachment';
+            } else {
+                viewer.style.display = 'none';
+                button.textContent = 'Show Attachment';
+            }
         }
 
     div.container
@@ -161,4 +166,4 @@ block content
                                                 - var pdfId = 'pdf-viewer-' + (index+1) + '-' + (imgIndex+1) ;
                                                 p #{pdfId}
                                                 button.toggle-button(onclick="togglePDFViewer(this, '" + pdfId + "')") Show Attachment
-                                                embed(id=pdfId class='pdf-viewer-frame' src=img.url)
+                                                embed(id=pdfId class='pdf-viewer-frame' src=img.url style='display:none') 
